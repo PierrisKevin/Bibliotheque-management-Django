@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/side-bars.css' %}">
+    <link rel="stylesheet" href="{% static '/ico/all.min.css'%}">
+    <link rel="stylesheet" href="{% static '/ico/fontawesome.min.css' %}">
+    {% block 'title' %}
+    <title>SideBars</title>
+    {% endblock %}
+</head>
+<body>
+    <nav id="side-bar">
+        <div class="side-bar-container">
+
+            <div class="logo-bars">
+                <img src="{% static '/image/Logo-EMIT.png' %}">
+            </div>
+            <div class="menu-bars">
+                <div class="choise {% if active == 'adh' %}active{% endif %}">
+                    <a href="{% url 'home' %}"><i class="fa-solid fa-user"></i> <span class="text-choise">Adherant</span></a>
+                </div>
+                <div class="choise {% if active == 'livre' %}active{% endif %}">
+                    <a href="{% url 'livre' %}"><i class="fa-solid fa-book"></i> <span class="text-choise">Livre</span></a>
+                </div>
+                <div class="choise {% if active == 'emprunt' %}active{% endif %}">
+                    <a href="#"><i class="fa-solid fa-landmark"></i>Emprunt</span></a>
+                </div>
+                
+            </div>
+            <div class="logout-bars">
+                <div class="user-name">
+                    <div class="logout-btn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <a href="{% url 'logout' %}">Deconnecter</a>
+                    </div>
+                    <div class="profil-connected">
+                        {% block 'images' %}
+                        <img src="{% static '/image/user-icon.png' %}">
+                        {% endblock %}
+                        <div class="admin-name">
+
+                            <p>{{ users.last_name }}</p>
+                            <p>{{ users.first_name }}</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="container">
+        {% block 'content'%}
+
+        {% endblock %}
+    </div>
+
+
+    {% block 'footer' %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'title' %}
+    <title>Livre</title>
+    <link rel="stylesheet" href="{% static '/css/adherant.css' %}">
+    <link rel="stylesheet" href="{% static '/css/modal-supr.css' %}">
+{% endblock %}
+
+{% block 'content' %}
+        
+        <div class="overlay-all hidden"></div>
+
+        <!-- Supression modal -->
+
+        <div class="modal-supr hidden">
+            <span class="exit-del">x</span>
+            <h1>Confirmer la suppression</h1>
+            <p>Voulez vous vraiment supprimer ce membre adherer dans la bibliotheque,
+                 sachant que si vous supprimer ce membre, ca sera definitive</p>
+            <div class="option-del">
+                <a href="#" class="delValue">Confirmer</a>
+                <a href="#">Cancel</a>
+            </div>
+        </div>
+
+        <!-- fin du modal -->
+
+        <div class="modal-ajout hidden">
+            <span class="exit-add">x</span>
+            <form method="POST" class="formulaire">
+                {% csrf_token %}
+                <h1>Nouveau livre ! </h1>
+                <input type="number" placeholder="Code livre" name="code_livre">
+                <input type="text" placeholder="Titre" name="titre">
+                <input type="text" placeholder="Auteur" name="auteur">
+                <input type="datetime-local" placeholder="date d'edition" name="date_edit">
+
+                <input type="text" placeholder="Editon" name="edition">
+    
+                <input type="hidden" name="valeur" value="add" class="add_and_edit">
+                <button type="submit">Enregistrer</button>
+
+            </form>
+
+
+        </div>
+
+        <div id="container-search">
+            <form method="POST">
+                {% csrf_token %}
+                <div id="search-student">
+                    <div class="search-control">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" placeholder="cherche ici..." name="search" autofocus>
+                    </div>
+                    <input type="hidden" name="valeur" value="search">
+                </div>
+            </form>
+            <div class="add-btn">
+                <p>+ ajouter adherant</p>
+            </div>
+        </div>
+
+            <div id="pay-contain">
+
+                {% for livre in livres %}
+                <div class="payment-list">
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <input type="hidden" name="valeur" value=" " >
+                        <div class="matricule-contain">
+                            <p>{{ livre.code_livre }}</p>
+                        </div>
+                        <div class="informations">
+                            <p>{{livre.titre}}</p>
+                            <p>{{livre.auteur}}</p>
+                        </div>
+                        <div class="naissance">
+                            <p>
+                                {{ livre.date_edit }}
+                            </p>
+                            <p>
+                                {{ livre.edition_liv }}
+                            </p>
+                        </div>
+                        <div class="adresse">
+                            <p>
+                                
+                            </p>
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div class="options">
+
+                            <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="#"><i class="fa-solid fa-trash"></i></a>
+                        </div>
+                    </form>
+                    
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block 'footer' %}
+    <script src="{% static '/js/livre-control.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,101 @@
+.overlay-all{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #0000001c;
+    z-index: 5;
+}
+.modal-supr ,.modal-ajout{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding : 2%;
+    top : 50%;
+    right : 10%;
+    width: 35%;
+    height : 200px;
+    background: rgb(253, 253, 253);
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    z-index: 7;
+}
+.modal-supr .exit-del{
+    position: absolute;
+    right: 10px;
+    top : 5px;
+    color: #575757;
+    cursor: pointer;
+}
+.modal-supr h1{
+    font-size: 1.4em;
+    text-transform: uppercase;
+    color : #e80000;
+    text-align: center;
+}
+.modal-supr p{
+    color : #2c2c2c;
+}
+
+.modal-supr .option-del a{
+    font-size: .9em;
+    text-decoration: none;
+    margin-left : 2%;
+    padding : 5px 8px;
+    color : #000;
+    border : 1px solid #000;
+    border-radius: 5px;
+}
+.modal-supr .option-del a:nth-child(1){
+    color : #fff;
+    background: #131313;
+}
+
+
+/* A la style du modal ajout */
+.exit-add{
+    position: absolute;
+    top: 5px;
+    right : 8px;
+    font-size: 1.2em;
+    color :#4d4d4d;
+    cursor: pointer;
+}
+.modal-ajout{
+    left :60%;
+    width : 40%;
+    height : 70vh;
+}
+.modal-ajout form{
+    display: flex;
+    flex-direction: column;
+    gap : 15px;
+    width : 100%;
+    height : 100%;
+}
+.modal-ajout form{
+    text-align: center;
+    margin : 2% 0 5% 0;
+}
+.modal-ajout form input{
+    padding-left :2%;
+    width : 100%;
+    height : 40px;
+    border : none;
+    outline :none;
+    background: #ac9ee5;
+    border : 1px solid #dad3f6;
+    border-radius: 5px;
+}
+.modal-ajout form button{
+    padding : 8px 12px;
+    width: 150px;
+    border : none;
+    color : #fff;
+    background: #1800f0;
+    border-radius: 5px;
+}
+
+.hidden{
+    display : none;
+}

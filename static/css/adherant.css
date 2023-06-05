@@ -1,0 +1,162 @@
+:root{
+    --primary : #5360f6;
+    --second : #00a2ff;
+    --primary2 : #015c93;
+    --primary3: #2d83b6;
+    --bg : #f2dbf2;
+    --white : #fefefe;
+    --text : #949498;
+    --gris : #ededf5;
+    --gris-text: #30333b;
+
+}
+*, body{
+    margin :0;
+    padding : 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+#container{
+    display: inline-block;
+    position: relative;
+    padding : 10px;
+    float :right;
+    width: 80%;
+    height: 100vh;
+}
+
+/* ajouter style  */
+.add-btn{
+    position: absolute;
+    right : 10px;
+    top: 2%;
+    padding : 8px 12px;
+    color : #fff;
+    border-radius: 5px;
+    background: #00a2ff;
+    cursor: pointer;
+}
+
+#search-student{
+    display: flex;
+    width : 60%;
+    height : 50px;
+    background: var(--white);
+    border-radius: 5px;
+    box-shadow:  0 10px 40px rgba(0,0,0,.07);
+}
+#search-student .search-control{
+    margin-left: 2%;
+    height: 100%;
+    width : 85%;
+}
+#search-student .search-control input, #search-student .search-control button{
+    outline: none;
+    height: 100%;
+    border: none;
+    background: none;
+}
+#search-student .search-control input{
+    width : 80%
+}
+#search-student .filter-option{
+    height: 100%;
+    width : 10%
+}
+#search-student .filter-option select{
+    outline: none;
+    height: 100%;
+    width : 100%;
+    border: none;
+    background: none;
+    color : var(--text);
+}
+
+#pay-contain{
+    margin-top: 2%;
+}
+
+.payment-list form{
+    position: relative;
+    display: flex;
+    margin : 5px 0;
+    padding : 7px;
+    gap : 15px;
+    width: 100%;
+    border-radius: 5px;
+    background: rgb(252, 252, 252);
+    box-shadow:  0 5px 10px rgba(0,0,0,.1);
+}
+.payment-list form .matricule-contain{
+    margin-top: .6%;
+    width: 50px;
+    height: 40px;
+    border-radius: 50%;
+}
+.payment-list form .matricule-contain p{
+    font-size: 1.4em;
+    font-weight: bolder;
+}
+.payment-list .informations{
+    width: 30%;
+}
+.payment-list .informations p{
+    font-size: .8em;
+    margin-top: 1.5%;
+}
+.payment-list .informations p:nth-child(1){
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.payment-list .informations p:nth-child(2){
+    text-transform: capitalize;
+    font-weight: 100;
+}
+.payment-list .naissance, .payment-list .adresse{
+    display: flex;
+    flex-direction: column;
+    margin-top: .5%;
+    gap : 5px;
+    text-align : left;
+    width : 30%;
+    height: 100%;
+}
+.payment-list .naissance p{
+    font-size: .9em;
+    text-transform: uppercase;
+}
+
+
+
+.payment-list form .options{
+    position: absolute;
+    padding: 10px 0;
+    height: 100%;
+    right: 15px;
+}
+.payment-list form .options button{
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    padding : 5px 6px;
+}
+.payment-list form .options button:nth-child(1){
+    background: #576dff;
+    color: #fcfcfc;
+}
+.payment-list form .options a{
+    font-size: .8em;
+    padding : 5px 6px;
+    border-radius: 4px;
+    background: #c80000;
+    color: #fcfcfc;
+    transition: .6s;
+    cursor: pointer;
+}
+.payment-list form .options a:nth-child(2){
+    background: #00c849;
+}
+
+.hidden{
+    display: none;
+}

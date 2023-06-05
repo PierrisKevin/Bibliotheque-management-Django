@@ -1,0 +1,202 @@
+:root{
+    --primary : #5360f6;
+    --bg : #f2dbf2;
+    --white : #f9f7f7;
+    --text : #575757;
+    --gris : #ededf5;
+    --gris-text: #30333b;
+
+}
+*, body{
+    margin :0;
+    padding : 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /* color : #ad2222 */
+}
+body{
+    background: var(--bg);
+}
+#side-bar{
+    display: inline-block;
+    position: relative;
+    padding : 10px 10px 10px 0;
+    width: 20%;
+    height: 99vh;
+    /* min-width: 250px; */
+    border-radius: 5px;
+    z-index: 2;
+}
+#side-bar .side-bar-container{
+    display: inline-flex;
+    position: fixed;
+    left: 0;
+    top : 0;
+    /* gap : 10px; */
+    flex-direction: column;
+    padding: 0 1.2%;
+    width : 20%;
+    /* min-width: 250px; */
+    height: 100%;
+    border-radius: 5px;
+    background: var(--white);
+    /* box-shadow: 5px 0 20px rgba(0,0,0,.05); */
+}
+
+#side-bar .side-bar-container .logo-bars{
+    width: 100%;
+    height :15%;
+    /* background: blue; */
+}
+#side-bar .side-bar-container .logo-bars img{
+    height : 80%;
+}
+#side-bar .side-bar-container .menu-bars{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 65%;
+    /* background: greenyellow; */
+}
+
+#side-bar .side-bar-container .menu-bars .choise{
+    padding : 8px 5px;
+    width: 70%;
+    border-radius: 5px;
+}
+#side-bar .side-bar-container .menu-bars .choise a{
+    text-decoration: none;
+    color : var(--text)
+}
+#side-bar .side-bar-container .menu-bars .choise a i{
+    padding : 10px;
+    margin-right: 2%;
+    border-radius: 5px;
+}
+.active a{
+    background: var(--white);
+    padding : 15px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.1);
+}
+.active a i{
+    background: var(--primary);
+    color : var(--white)
+}
+.active a{
+    color : var(--primary)!important;
+    font-weight: bold;
+}
+
+.logout-bars{
+    width: 80%;
+    height: 30%;
+}
+.logout-bars .user-name{
+    position: relative;
+    margin-top: 50%;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: bold;
+}
+.logout-bars .user-name .logout-btn{
+    position: absolute;
+    display: flex;
+    top : -65px;
+    gap : 5px;
+    width :60%;
+    margin :15px 0;
+    padding : 12px 17px;
+    background-color: var(--white);
+    color : var(--primary);
+    border-radius: 5px;
+    animation: enterLogout .6s ease-out;
+}
+.logout-bars .logout-btn a{
+    font-size: .8em;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--primary);
+}
+.logout-bars .user-name .profil-connected{
+    display: flex;
+    gap : 12px;
+    padding: 5px;
+    width : 100%;
+    border: 2px solid #fff;
+    background: var(--white);
+    box-shadow: 0 15px 20px rgba(0,0,0,.1);
+    border-radius: 10px;
+}
+.logout-bars .user-name .profil-connected img{
+    width : 35px;
+    height: 35px;
+    border : 2px solid rgb(73, 73, 73);
+    border-radius: 50%;
+}
+.logout-bars .user-name .profil-connected .admin-name{
+    font-size: .8em;
+    padding: 4% 0;
+}
+.logout-bars .user-name .profil-connected .admin-name p:nth-child(2){
+    text-transform: capitalize;
+    font-weight: 100;
+}
+#container{
+    display: inline-block;
+    position: relative;
+    float :right;
+    width: 90%;
+    height: 100vh;
+
+}
+
+@media (max-width : 1020px){
+    #side-bar{
+        min-width: 50px;
+    }
+    #side-bar .side-bar-container{
+        align-items: center;
+        min-width: 50px;
+    }
+    #side-bar .side-bar-container .logo-bars img{
+        width: 100%;
+        height: auto;
+    }
+    #side-bar .side-bar-container .menu-bars .choise a .text-choise{
+        font-size: .65em;
+    }
+    .logout-bars .logout-btn a{
+        font-size: .7em;
+    }
+}
+@media (max-width : 850px){
+    #side-bar{
+        min-width: 50px;
+    }
+    #side-bar .side-bar-container{
+        min-width: 50px;
+    }
+    #side-bar .side-bar-container .logo-bars img{
+        width: 100%;
+        height: auto;
+    }
+    #side-bar .side-bar-container .menu-bars .choise a .text-choise{
+        display: none;
+    }
+    .logout-bars .logout-btn a{
+        display: none;
+    }
+}
+
+@keyframes enterLogout {
+    from{
+        transform: translateX(-20%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+.hidden{
+    display: none!important;
+}

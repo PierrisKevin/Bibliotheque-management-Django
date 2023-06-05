@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'title' %}
+    <title>Adherants</title>
+    <link rel="stylesheet" href="{% static '/css/adherant.css' %}">
+    <link rel="stylesheet" href="{% static '/css/modal-supr.css' %}">
+{% endblock %}
+
+{% block 'content' %}
+        
+        <div class="overlay-all hidden"></div>
+
+        <!-- Supression modal -->
+
+        <div class="modal-supr hidden">
+            <span class="exit-del">x</span>
+            <h1>Confirmer la suppression</h1>
+            <p>Voulez vous vraiment supprimer ce membre adherer dans la bibliotheque,
+                 sachant que si vous supprimer ce membre, ca sera definitive</p>
+            <div class="option-del">
+                <a href="#" class="delValue">Confirmer</a>
+                <a href="#">Cancel</a>
+            </div>
+        </div>
+
+        <!-- fin du modal -->
+
+        <div class="modal-ajout hidden">
+            <span class="exit-add">x</span>
+            <form method="POST">
+                {% csrf_token %}
+                <h1>Nouveau adherant ! </h1>
+                <input type="number" placeholder="Matricule" name="matricule">
+                <input type="text" placeholder="Nom" name="nom">
+                <input type="text" placeholder="prneom" name="prenom">
+                <input type="datetime-local" placeholder="date de naissance" name="date_naissance">
+                <input type="text" placeholder="Lieu de naissance" name="lieu_naissance">
+                <input type="text" placeholder="Adresse" name="adresse">
+                <input type="number" placeholder="Numero telephone" name="numTel">
+                <input type="hidden" name="valeur" value="add" class="add_and_edit">
+                <button type="submit">Enregistrer</button>
+
+            </form>
+
+
+        </div>
+
+        <div id="container-search">
+            <form method="POST">
+                {% csrf_token %}
+                <div id="search-student">
+                    <div class="search-control">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" placeholder="cherche ici..." name="search" autofocus>
+                    </div>
+                    <input type="hidden" name="valeur" value="search">
+                </div>
+            </form>
+            <div class="add-btn">
+                <p>+ ajouter adherant</p>
+            </div>
+        </div>
+
+            <div id="pay-contain">
+
+                {% for adherant in adherants %}
+                <div class="payment-list">
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <input type="hidden" name="valeur" value=" " >
+                        <div class="matricule-contain">
+                            <p>{{ adherant.matricule }}</p>
+                        </div>
+                        <div class="informations">
+                            <p>{{adherant.nom}}</p>
+                            <p>{{adherant.prenom}}</p>
+                        </div>
+                        <div class="naissance">
+                            <p>
+                                {{ adherant.date_naissance }}
+                            </p>
+                            <p>
+                                {{ adherant.lieu_naissance }}
+                            </p>
+                        </div>
+                        <div class="adresse">
+                            <p>
+                                {{ adherant.adresse }}
+                            </p>
+                            <p>
+                                {{ adherant.num_tel }}
+                            </p>
+                        </div>
+                        <div class="options">
+
+                            <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="#"><i class="fa-solid fa-trash"></i></a>
+                        </div>
+                    </form>
+                    
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block 'footer' %}
+    <script src="{% static '/js/modal-control.js' %}"></script>
+{% endblock %}
